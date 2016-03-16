@@ -7,13 +7,14 @@ import time
 
 source = []
 
-backList = open("H:\\list.txt", "r")
-while True:
-    line = backList.readline()
-    if len(line) == 0:
-        break
-    source.append(line.replace('\n', ''))
-    print(line, end='')
+# 改用就能使得在结束的时候自动关闭文件
+with open("H:\\list.txt", "r") as backList:
+    while True:
+        line = backList.readline()
+        if len(line) == 0:
+            break
+        source.append(line.replace('\n', ''))
+        print(line, end='')
 
 targetDir = r'H:\BackUps'
 timeString = time.strftime('%Y%m%d_%H%M')
