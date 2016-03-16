@@ -1,6 +1,9 @@
 class Robot:
     population = 0
 
+    # __name:私有变量
+    # 只想在类或对象中使用，就应该以单下划线前缀
+
     def __init__(self, name):
         # 动态的。。。
         self.name = name
@@ -25,16 +28,19 @@ class Robot:
 
     # howMany 实际上是属于类而不是对象的方法。
     def howMany():
+        """ count """
         print('We have {0:d} robots.'.format(Robot.population))
 
     howMany = staticmethod(howMany)
 
 
 droid1 = Robot('R2-D2')
+print("droid1.population", droid1.population)
 droid1.sayHi()
 Robot.howMany()
 
 droid2 = Robot('C-3P0')
+print("droid2.population", droid2.population)
 droid2.sayHi()
 Robot.howMany()
 
